@@ -2,10 +2,10 @@ import React from 'react';
 
 function Register() {
     return (
-        <div className='formContainer'>
-        <div className='formwrapper'>
-            <span className='logo'>Chat Room</span>
-            <span className='title'>Register</span>
+        <div className='bg-blue-300 h-screen flex items-center justify-center'>
+        <div className='bg-slate-400 p-8 rounded flex flex-col space-y-4 items-center'>
+            <span className='text-blue-700 font-bold text-2xl'>Chat Room</span>
+            <span className='text-red-700 text-8m'>Register</span>
             <form>
                 <input type='text' placeholder='display name'/>
                 <input type='email' placeholder='email'/>
