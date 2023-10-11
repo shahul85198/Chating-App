@@ -1,15 +1,29 @@
-import React from "react";
+import { updateCurrentUser } from "firebase/auth";
+import React, { useContext, useEffect, useRef } from "react";
+import { AuthContext } from "../context/AuthContext";
+import { ChatContext } from "../context/ChatContext";
 
-function Message() {
+function Message({message}) {
+    const {currentUser} = useContext(AuthContext);
+    const {data} = useContext(ChatContext);
+
+    const ref = useRef();
+
+    useEffect(() => {
+        ref.current?.scrollIntoView({behaviour: "smooth"});
+    }, [message])
+
+
     return (
-        <div className="message owner">
+        <div className={`message ${Message.senderId === updateCurrentUser.uid && "owner"}`} ref={ref}>
             <div className="messageinfo">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgo_wbx6WdmBtyVvJ1k6maH-I4Ij1kXXC-ijbYDeOSyw&s" alt="" />
+                <img src={
+                    message.senderId === currentUser.uid ? currentUser.photoURL : data.user.photoURL} alt="" />
                 <span>just now</span>
             </div>
             <div className="messagecontent">
-                <p>Hello</p>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgo_wbx6WdmBtyVvJ1k6maH-I4Ij1kXXC-ijbYDeOSyw&s" alt="" />
+                <p>{message.text}</p>
+               {message.img && <img src={message.img} />}
             </div>
         </div>
     )
