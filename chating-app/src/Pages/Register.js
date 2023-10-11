@@ -3,12 +3,12 @@ import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import {doc, setDoc} from 'firebase/firestore'
 import {db} from '../firebase'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 function Register() {
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
-    const navigate = useNavigate()
+    const navigate = useHistory()
 
         const handleSubmit = async (e) => {
             e.preventDefault();
@@ -27,19 +27,19 @@ const date = new new Date().getTime();
 const storageRef = ref(storage, `${displayName + date}`);
 
 await uploadBytesResumable(storageRef, file).then(() => {
-    getDownloadURL(storageRef).then(async (getDownloadURL) => {
+    getDownloadURL(storageRef).then(async (downloadURL) => {
         try {
         // update profile
         await updateProfile(res.user, {
             displayName,
-            photoURL: getDownloadURL,
+            photoURL: downloadURL,
         });
-        // create user on firestore
+        // create user on firestore this will create in serrver
         await setDoc(doc(db, "users", res.user.uid), {
             uid: res.user.uid,
             displayName,
             email,
-            photoURL: getDownloadURL,
+            photoURL: downloadURL,
         });
 
         // create empty user chats on firestore

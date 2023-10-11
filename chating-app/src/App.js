@@ -1,5 +1,5 @@
 
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom/cjs/react-router-dom.min';
+import { BrowserRouter, useHistory, Route, Routes } from 'react-router-dom/cjs/react-router-dom.min';
 import './App.css';
 import Login from './Pages/Login';
 import Register from './Pages/Register';
@@ -14,7 +14,7 @@ function App() {
 
   const ProtectedRoute = ({children}) => {
     if (!currentUser) {
-      return <Navigate to='/login'/>;
+      return <useHistory to='/login'/>;
     }
     return children
   };

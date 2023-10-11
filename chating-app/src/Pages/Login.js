@@ -1,11 +1,11 @@
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react';
-import {useNavigate, Link} from 'react-router-dom'
+import {useHistory, Link} from 'react-router-dom'
 
 function Login() {
     
         const [error, setError] = useState(false);
-        const navigate = useNavigate();
+        const navigate = useHistory();
 
         const handleSubmit = async (e) => {
             e.preventDefault();
