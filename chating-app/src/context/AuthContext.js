@@ -6,9 +6,10 @@ export const AuthContext = createContext();
 
 export const AuthContextProvider =({children}) => {
     const [currentUser, setCurrentuser] = useState({});
-    const auth = getAuth();
 
+    // here onAuthStateChanged is used to all state changing
     useEffect(() => {
+        const auth = getAuth();
         const unsubcribe = onAuthStateChanged(auth, (user) => {
             setCurrentuser(user);
             console.log(user)

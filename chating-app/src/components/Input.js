@@ -4,7 +4,7 @@ import { ChatContext } from "../context/ChatContext";
 import {arrayUnion, doc, serverTimestamp, Timestamp, updateDoc} from "firebase/firestore"
 import {db, storage} from '../firebase';
 import {v4 as uuid} from "uuid";
-import {getDownloadUrl, ref, uploadBytestResumable} from "firebase/storage";
+import {getDownloadURL, ref, uploadBytesResumable} from "firebase/storage";
 
 
 function Input() {
@@ -18,14 +18,14 @@ function Input() {
         if (img) {
             const storageRef = ref(storage, uuid());
 
-            const uploadTask = uploadBytestResumable(storageRef, img);
+            const uploadTask = uploadBytesResumable(storageRef, img);
 
             uploadTask.on(
                 (error) => {
 
                 },
                 () => {
-                    getDownloadUrl(uploadTask.snapshot.ref).then(async (downloadURL) => {
+                    getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
                         await updateDoc(doc(db, "chats", data.chatId), {
                             messages: arrayUnion({
                                 id: uuid(),

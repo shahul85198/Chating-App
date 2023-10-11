@@ -1,26 +1,25 @@
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import React, { useState } from 'react';
+import React from 'react';
 import {useHistory, Link} from 'react-router-dom'
 
 function Login() {
     
-        const [error, setError] = useState(false);
-        const navigate = useHistory();
+    //const [Error, setErr] = useState(false);
+        const history = useHistory();
 
         const handleSubmit = async (e) => {
             e.preventDefault();
             const email = e.target[0].value;
             const password = e.tarhet[1].value;
-            const auth = getAuth()
+            const auth = getAuth();
 
             try {
                 await signInWithEmailAndPassword(auth, email, password);
-                navigate("/")
-            } catch (error) {
-                setError(true);
-            }
-
-        }
+                history("/")
+              } catch (Error) {
+                //setErr(true);
+              }
+        };
 
     return (
         <div className='formContainer'>
