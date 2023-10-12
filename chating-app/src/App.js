@@ -1,5 +1,5 @@
 
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom/cjs/react-router-dom.min';
+import { BrowserRouter, Route, Switch, useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import './App.css';
 import Login from './Pages/Login';
 import Register from './Pages/Register';
@@ -11,11 +11,11 @@ import {AuthContext} from './context/AuthContext'
 function App() {
 
   const {currentUser} = useContext(AuthContext);
-  //const History = useHistory()
+  const History = useHistoty()
 
   const ProtectedRoute = ({children}) => {
     if (!currentUser) {
-      return <Redirect to='/login'/>;
+      return <History to='/login'/>;
     }
     return children;
   };

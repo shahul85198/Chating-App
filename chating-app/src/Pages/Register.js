@@ -8,7 +8,7 @@ import { Link, useHistory } from 'react-router-dom';
 function Register() {
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
-    const navigate = useHistory()
+    const history = useHistory()
 
         const handleSubmit = async (e) => {
             e.preventDefault();
@@ -44,7 +44,7 @@ await uploadBytesResumable(storageRef, file).then(() => {
 
         // create empty user chats on firestore
         await setDoc(doc(db, "userChats", res.user.uid), {});
-        navigate("/");
+        history.push("/");
         } catch (error) {
             console.log(error);
             setError(true);
