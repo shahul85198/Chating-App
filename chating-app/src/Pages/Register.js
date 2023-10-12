@@ -66,7 +66,7 @@ await uploadBytesResumable(storageRef, file).then(() => {
 
             <form className='flex flex-col space-y-4' onSubmit={handleSubmit}>
               
-                <input type='text' placeholder='display name'/>
+                <input className='' type='text' placeholder='display name'/>
                 <input type='email' placeholder='email'/>
                 <input type='password' placeholder='password'/>
                 <input style={{display:'none' }} type='file' id='file'/>
