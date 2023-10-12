@@ -9,6 +9,7 @@ function Chats() {
     const {currentUser} = useContext(AuthContext);
     const {dispatch} = useContext(ChatContext);
 
+    //snapshot uses for changes in chat app from firestore
     useEffect(() => {
         const getChats = () => {
             const unsub = onSnapshot(doc(db, "userChats", currentUser.uid), (doc) => {
@@ -29,9 +30,10 @@ function Chats() {
 
 
     return (
+        // we covert object to array we use keys in sort
         <div className="chats">
-            
-        {Object.entries(chats)?.sort((a,b) => b[1].date - a[1].date).map((chat) => (
+        
+        {Object.keys(chats)?.sort((a,b) => b[1].date - a[1].date).map((chat) => (
             <div
                className="userchat"
                key={chat[0]}

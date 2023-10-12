@@ -77,3 +77,89 @@ await setDoc(doc(db, "cities", "LA"), {
 await setDoc(doc(db, "cities", "LA"),{})
 });
 ```
+
+### When a user signs in to your app, pass the user's email address and password to signInWithEmailAndPassword:
+
+```
+mport { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
+const auth = getAuth();
+signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  });
+
+```
+
+###  here we used for search data
+```
+// Create a reference to the cities collection
+import { collection, query, where } from "firebase/firestore";
+const citiesRef = collection(db, "cities");
+
+// Create a query against the collection.
+const q = query(citiesRef, where("state", "==", "CA"));
+```
+
+### Update a document
+- To update some fields of a document without overwriting the entire document, use the following language-specific update() methods:
+
+```
+import { doc, updateDoc } from "firebase/firestore";
+
+const washingtonRef = doc(db, "cities", "DC");
+
+// Set the "capital" field of the city 'DC'
+await updateDoc(washingtonRef, {
+  capital: true
+});
+```
+
+
+### Update fields in nested objects
+- If your document contains nested objects, you can use "dot notation" to reference nested fields within the document when you call update():
+
+```
+import { doc, setDoc, updateDoc } from "firebase/firestore"; 
+
+// Create an initial document to update.
+const frankDocRef = doc(db, "users", "frank");
+await setDoc(frankDocRef, {
+    name: "Frank",
+    favorites: { food: "Pizza", color: "Blue", subject: "recess" },
+    age: 12
+});
+```
+
+
+### Server Timestamp
+- You can set a field in your document to a server timestamp which tracks when the server receives the update.
+
+```
+import { updateDoc, serverTimestamp } from "firebase/firestore";
+
+const docRef = doc(db, 'objects', 'some-id');
+
+// Update the timestamp field with the value from the server
+const updateTimestamp = await updateDoc(docRef, {
+    timestamp: serverTimestamp()
+});
+
+```
+
+### snapshot
+- when changes occures in fire base the immediat changes occurs in the application so we use snapshot in chats.js
+
+```
+import { doc, onSnapshot } from "firebase/firestore";
+
+const unsub = onSnapshot(doc(db, "cities", "SF"), (doc) => {
+    console.log("Current data: ", doc.data());
+});
+```

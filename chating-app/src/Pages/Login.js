@@ -15,7 +15,7 @@ function Login() {
 
             try {
                 await signInWithEmailAndPassword(auth, email, password);
-                history("/")
+                history.push("/")
               } catch (Error) {
                 //setErr(true);
               }

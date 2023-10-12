@@ -32,7 +32,7 @@ try {
     }
 
     const handleSelect = async () => {
-        // cheking whether the chats in firestore if not create
+        // cheking whether the chats in firestore if not create we combine to users in dispaly
         const combinedId = currentUser.uid > user.uid ? currentUser.uid + user.uid : user.uid + currentUser.uid;
 
         try {
@@ -52,6 +52,8 @@ try {
                     [combinedId + ".date"]: serverTimestamp(),
                 });
 
+                // here we use last message to send inside the user
+
                 await updateDoc(doc(db, "userChats", user.uid), {
                     [combinedId + ".userInfo"]: {
                         uid: currentUser.uid,
@@ -62,7 +64,7 @@ try {
                 });
             }
         } catch (error) {}
-        
+        // we here used to user gone by click on it from chats
         setUser(null);
         setUsername("")
     }
