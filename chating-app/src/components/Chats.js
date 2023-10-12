@@ -31,7 +31,7 @@ function Chats() {
 
     return (
         // we covert object to array we use keys in sort
-        <div className="chats">
+        <div className="chats"> chats
         
         {Object.keys(chats)?.sort((a,b) => b[1].date - a[1].date).map((chat) => (
             <div
@@ -47,7 +47,7 @@ function Chats() {
             <p>{chat[1].lastMessage?.text}</p>
         </div>
         </div>
-        ))}
+        ))} 
         </div>
     )
 }

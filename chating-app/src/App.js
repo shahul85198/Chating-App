@@ -6,6 +6,8 @@ import Register from './Pages/Register';
 import Home from './Pages/Home'
 import { useContext } from 'react';
 import {AuthContext} from './context/AuthContext'
+import Messages from './components/Messages';
+import Chats from './components/Chats'
 
 
 function App() {
@@ -13,17 +15,15 @@ function App() {
   const {currentUser} = useContext(AuthContext);
   
 
-  const ProtectedRoute = ({children}) => {
+ const ProtectedRoute = ({children}) => {
     if (!currentUser) {
       return <Redirect to="/login" />;
-    }
+  }
     return children;
   };
 
-
   return (
-
-
+  
    <BrowserRouter>
      <Switch>
       <Route path='/'>
