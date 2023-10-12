@@ -1,4 +1,18 @@
+import React from 'react'
+import Home from './Pages/Home'
 
+function App() {
+    return (
+        <div>
+          <Home />
+        </div>
+    )
+}
+
+
+
+
+/*
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import './App.css';
 import Login from './Pages/Login';
@@ -6,8 +20,6 @@ import Register from './Pages/Register';
 import Home from './Pages/Home'
 import { useContext } from 'react';
 import {AuthContext} from './context/AuthContext'
-import Messages from './components/Messages';
-import Chats from './components/Chats'
 
 
 function App() {
@@ -36,5 +48,5 @@ function App() {
   );
 }
 
-
+*/
 export default App;

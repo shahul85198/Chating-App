@@ -1,3 +1,13 @@
+import React from 'react'
+
+function Input() {
+    return (
+        <div>Input</div>
+    )
+}
+
+
+/*
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { ChatContext } from "../context/ChatContext";
@@ -101,4 +111,6 @@ function Input() {
 
     )
     }
+
+    */
 export default Input 

@@ -1,3 +1,13 @@
+import React from 'react'
+
+function Search() {
+    return (
+        <div>Chat</div>
+    )
+}
+
+
+/*
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { collection, doc, getDoc, getDocs, query, serverTimestamp, setDoc, updateDoc, where } from 'firebase/firestore';
@@ -91,5 +101,5 @@ try {
         </div>
     )
 }
-
+*/
 export default Search

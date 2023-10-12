@@ -1,3 +1,14 @@
+import React from 'react'
+
+function Navbar() {
+    return (
+        <div>Navbar</div>
+    )
+}
+
+
+
+/*
 import React, { useContext } from 'react';
 import {getAuth} from "firebase/auth";
 import {AuthContext} from '../context/AuthContext'
@@ -18,5 +29,5 @@ function Navbar() {
         </div>
     )
 }
-
+*/
 export default Navbar

@@ -1,3 +1,13 @@
+import React from 'react'
+
+function Chat() {
+    return (
+        <div className='chat flex-1'>Chat</div>
+    )
+}
+
+
+/*
 import React, { useContext } from 'react';
 import Messages from './Messages';
 import Input from './Input';
@@ -22,5 +32,5 @@ function Chat() {
         </div>
     )
 }
-
+*/
 export default Chat

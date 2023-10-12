@@ -1,3 +1,14 @@
+import React from 'react'
+
+function Messages() {
+    return (
+        <div>Messages</div>
+    )
+}
+
+
+
+/*
 import React, { useContext, useEffect, useState } from "react";
 import {ChatContext} from '../context/ChatContext'
 import { db } from "../firebase";
@@ -28,5 +39,5 @@ const Messages = () => {
         </div>
     )
 }
-
+*/
 export default Messages

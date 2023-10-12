@@ -1,3 +1,15 @@
+import React from 'react'
+
+function Sidebar() {
+    return (
+        <div className='sidebar flex-1 border-r-2 border-green-300 '>
+            side</div>
+    )
+}
+
+
+
+/*
 import React from 'react';
 import Navbar from './Navbar';
 import Search from './Search';
@@ -12,5 +24,5 @@ function Sidebar() {
         </div>
     )
 }
-
+*/
 export default Sidebar

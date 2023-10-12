@@ -1,3 +1,13 @@
+import React from 'react'
+
+function Message() {
+    return (
+        <div>Message</div>
+    )
+}
+
+
+/*
 import { updateCurrentUser } from "firebase/auth";
 import React, { useContext, useEffect, useRef } from "react";
 import { AuthContext } from "../context/AuthContext";
@@ -23,10 +33,10 @@ function Message({message}) {
             </div>
             <div className="messagecontent">
                 <p>{message.text}</p>
-               {message.img && <img src={message.img} />}
+               {message.img && <img src={message.img} alt=""/>}
             </div>
         </div>
     )
 }
-
+*/
 export default Message

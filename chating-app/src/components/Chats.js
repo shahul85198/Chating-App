@@ -1,3 +1,13 @@
+import React from 'react'
+
+function Chats() {
+    return (
+        <div>Chat</div>
+    )
+}
+
+
+/*
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { ChatContext } from "../context/ChatContext";
@@ -51,4 +61,5 @@ function Chats() {
         </div>
     )
 }
+*/
 export default Chats
