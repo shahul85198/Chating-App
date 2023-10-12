@@ -4,7 +4,7 @@ import './App.css';
 import Login from './Pages/Login';
 import Register from './Pages/Register';
 import Home from './Pages/Home'
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import {AuthContext} from './context/AuthContext'
 
 
@@ -15,19 +15,21 @@ function App() {
 
   const ProtectedRoute = ({children}) => {
     if (!currentUser) {
-      return <Redirect to="/login"/>;
+      return <Redirect to="/login" />;
     }
     return children;
   };
 
 
   return (
-    <BrowserRouter>
+
+
+   <BrowserRouter>
      <Switch>
       <Route path='/'>
-        <Route index element={<ProtectedRoute><Home /></ProtectedRoute>} />
-        <Route path='login' element={<Login />} />
-        <Route path="register" element={<Register />} />
+        <Route  component={<ProtectedRoute><Home /></ProtectedRoute>} />
+        <Route path='login' component={<Login />} />
+        <Route path="register" component={<Register />} />
       </Route>
      </Switch>
     </BrowserRouter>

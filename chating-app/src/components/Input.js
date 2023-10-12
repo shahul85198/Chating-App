@@ -3,7 +3,6 @@ import { AuthContext } from "../context/AuthContext";
 import { ChatContext } from "../context/ChatContext";
 import {arrayUnion, doc, serverTimestamp, Timestamp, updateDoc} from "firebase/firestore"
 import {db, storage} from '../firebase';
-import {v4 as uuid} from "uuid";
 import {getDownloadURL, ref, uploadBytesResumable} from "firebase/storage";
 
 
@@ -16,7 +15,7 @@ function Input() {
 
       const handleSend = async () => {
         if (img) {
-            const storageRef = ref(storage, uuid());
+            const storageRef = ref(storage, Date.now().toString());
 
             const uploadTask = uploadBytesResumable(storageRef, img);
 
@@ -28,7 +27,7 @@ function Input() {
                     getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
                         await updateDoc(doc(db, "chats", data.chatId), {
                             messages: arrayUnion({
-                                id: uuid(),
+                                id: Date.now().toString(),
                                 text,
                                 senderId: currentUser.uid,
                                 date: Timestamp.now(),
@@ -41,7 +40,7 @@ function Input() {
         } else {
             await updateDoc(doc(db, "chats", data.chatId), {
                 messages: arrayUnion({
-                    id: uuid(),
+                    id: Date.now().toString(),
                     text,
                     senderId: currentUser.uid,
                     date: Timestamp.now()

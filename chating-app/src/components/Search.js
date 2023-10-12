@@ -13,12 +13,12 @@ function Search() {
    const {currentUser} = useContext(AuthContext);
 
    const handleSearch = async () => {
-    const query = query(
+    const Query = query(
         collection(db, "users"),
         where("displayName", "==", username)
     )
 try {
-    const quertSnapshot = await getDocs(query);
+    const quertSnapshot = await getDocs(Query);
     quertSnapshot.forEach((doc) => {
         setUser(doc.data());
     });
