@@ -2,7 +2,15 @@ import React from 'react'
 
 function Navbar() {
     return (
-        <div>Navbar</div>
+        <div className='navbar h-10 p-2 justify-between flex flex-initial w-64 align-center bg-green-300'>
+        
+            <span className='logo font-bold'>Chat Room</span>
+            <div className='user flex gap-x-1'>
+                <img className='' src='https://cdn-icons-png.flaticon.com/256/3126/3126647.png' alt=''/>
+                <span>johhn</span>
+                <button className='bg-orange-400 font-bold text-white text-xs px-2 py-1 cursor-pointer rounded'>logout</button>
+            </div>
+        </div>
     )
 }
 
