@@ -1,23 +1,4 @@
-import React from 'react'
 
-function Search() {
-    return (
-        <div className='search border-b border-gray-400 '>
-            <div className='searchform p-2'>
-                <input type='text' placeholder='find name'/>
-            </div>
-            <div className='userchat p-2 flex items-center gap-2 text-white cursor-pointer hover:bg-slate-700'>
-                <img className='w-12 h-12 rounded-full object-cover bg-white' src='https://cdn-icons-png.flaticon.com/256/3126/3126647.png' alt='' />
-                <div className='userchatinfo'>
-                    <span>jane</span>
-                </div>
-            </div>
-            </div>
-    )
-}
-
-
-/*
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { collection, doc, getDoc, getDocs, query, serverTimestamp, setDoc, updateDoc, where } from 'firebase/firestore';
@@ -90,8 +71,8 @@ try {
     }
 
     return (
-        <div className='search'>
-        <div className='searchform'>
+        <div className='border-b border-gray-400'>
+        <div className='p-2'>
             <input type='text' placeholder='Find user' 
             onKeyDown={handlekey} 
             onChange={(e) => setUsername(e.target.value)} 
@@ -101,15 +82,17 @@ try {
         {error && <span>user not found</span>}
 
         {user && (
-        <div className='userchat' onClick={handleSelect}>
-          <img src={user.photoURL} alt='' />
+        <div className=' p-2 flex items-center gap-2 text-white cursor-pointer hover:bg-slate-700'
+         onClick={handleSelect} >
+          <img className='w-12 h-12 rounded-full object-cover bg-white'  src={user.photoURL} alt='' />
+
          <div className='userchatinfo'>
-            <span>{user.displayName}</span>
+            <span className='text-xl font-semibold'>{user.displayName}</span>
             </div>
         </div>
         )}
         </div>
     )
 }
-*/
+
 export default Search

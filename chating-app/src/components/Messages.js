@@ -1,14 +1,5 @@
-import React from 'react'
-
-function Messages() {
-    return (
-        <div>Messages</div>
-    )
-}
 
 
-
-/*
 import React, { useContext, useEffect, useState } from "react";
 import {ChatContext} from '../context/ChatContext'
 import { db } from "../firebase";
@@ -31,13 +22,14 @@ const Messages = () => {
         console.log(messages)
         
     return (
-        <div className="messages">
-           {Messages.map((m) => (
+        <div className="bg-yellow-200 p-4 h-80 overflow-auto">
+           {messages.map((m) => (
             <Message message={m} key={m.id} />
            ))}
             
         </div>
     )
 }
-*/
+
+
 export default Messages

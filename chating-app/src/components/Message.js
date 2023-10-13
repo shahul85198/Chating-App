@@ -1,13 +1,5 @@
-import React from 'react'
-
-function Message() {
-    return (
-        <div>Message</div>
-    )
-}
 
 
-/*
 import { updateCurrentUser } from "firebase/auth";
 import React, { useContext, useEffect, useRef } from "react";
 import { AuthContext } from "../context/AuthContext";
@@ -25,18 +17,22 @@ function Message({message}) {
 
 
     return (
-        <div className={`message ${Message.senderId === updateCurrentUser.uid && "owner"}`} ref={ref}>
-            <div className="messageinfo">
-                <img src={
-                    message.senderId === currentUser.uid ? currentUser.photoURL : data.user.photoURL} alt="" />
-                <span>just now</span>
+        <div className={`flex gap-4  ${Message.senderId === updateCurrentUser.uid }`} ref={ref}>
+            <div className="flex flex-col text-gray-500 font-light">
+
+                <img className='w-16 h-16 rounded-full object-cover'
+                src={message.senderId === currentUser.uid ? currentUser.photoURL : data.user.photoURL} alt="" />
+
+                <span className='text-sm'>just now</span>
             </div>
-            <div className="messagecontent">
-                <p>{message.text}</p>
-               {message.img && <img src={message.img} alt=""/>}
+            <div className="flex gap-2">
+                <p className='bg-blue-900 text-white p-4 '>
+                    {message.text}
+                    </p>
+               {message.img && <img className='w-1/2' src={message.img} alt=""/>}
             </div>
         </div>
     )
 }
-*/
+
 export default Message

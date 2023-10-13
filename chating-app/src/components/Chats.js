@@ -1,21 +1,4 @@
-import React from 'react'
 
-function Chats() {
-    return (
-        <div className='chats'>
-            <div className='userchat p-2 flex items-center gap-2 text-white cursor-pointer hover:bg-slate-700'>
-                <img className='w-12 h-12 rounded-full object-cover bg-white' src='https://cdn-icons-png.flaticon.com/256/3126/3126647.png' alt='' />
-                <div className='userchatinfo '>
-                    <span className='text-xl font-semibold'>jane</span>
-                    <p className='text-sm text-white'>Hello</p>
-                </div>
-            </div>
-            </div>
-    )
-}
-
-
-/*
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { ChatContext } from "../context/ChatContext";
@@ -49,25 +32,25 @@ function Chats() {
 
     return (
         // we covert object to array we use keys in sort
-        <div className="chats"> chats
+        <div className="chats">
         
         {Object.keys(chats)?.sort((a,b) => b[1].date - a[1].date).map((chat) => (
             <div
-               className="userchat"
+            className='userchat p-2 flex items-center gap-2 text-white cursor-pointer hover:bg-slate-700'
                key={chat[0]}
                onClick={() => handleSelect(chat[1].userInfo)}
             >
         
 
-          <img src={chat[1].userInfo.photoURL} alt='' />
+          <img className='w-12 h-12 rounded-full object-cover bg-white' src={chat[1].userInfo.photoURL} alt='' />
          <div className='userchatinfo'>
-            <span>{chat[1].userInfo.displayName}</span>
-            <p>{chat[1].lastMessage?.text}</p>
+            <span className='text-xl font-semibold'>{chat[1].userInfo.displayName}</span>
+            <p className='text-sm text-white'>{chat[1].lastMessage?.text}</p>
         </div>
         </div>
         ))} 
         </div>
     )
 }
-*/
+
 export default Chats
