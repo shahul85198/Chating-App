@@ -7,7 +7,6 @@ import Home from './Pages/Home'
 import { useContext } from 'react';
 import {AuthContext} from './context/AuthContext'
 
-
 function App() {
   const {currentUser} = useContext(AuthContext);
  const ProtectedRoute = ({children}) => {

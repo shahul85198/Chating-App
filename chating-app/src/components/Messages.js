@@ -16,7 +16,7 @@ const Messages = () => {
         });
         return () => {
             unSub();
-        }
+        };
      }, [data.chatId])
 
         console.log(messages)
