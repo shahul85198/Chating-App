@@ -2,7 +2,15 @@ import React from 'react'
 
 function Chats() {
     return (
-        <div>Chat</div>
+        <div className='chats'>
+            <div className='userchat p-2 flex items-center gap-2 text-white cursor-pointer hover:bg-slate-700'>
+                <img className='w-12 h-12 rounded-full object-cover bg-white' src='https://cdn-icons-png.flaticon.com/256/3126/3126647.png' alt='' />
+                <div className='userchatinfo '>
+                    <span className='text-xl font-semibold'>jane</span>
+                    <p className='text-sm text-white'>Hello</p>
+                </div>
+            </div>
+            </div>
     )
 }
 

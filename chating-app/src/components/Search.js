@@ -2,7 +2,17 @@ import React from 'react'
 
 function Search() {
     return (
-        <div>Chat</div>
+        <div className='search border-b border-gray-400 '>
+            <div className='searchform p-2'>
+                <input type='text' placeholder='find name'/>
+            </div>
+            <div className='userchat p-2 flex items-center gap-2 text-white cursor-pointer hover:bg-slate-700'>
+                <img className='w-12 h-12 rounded-full object-cover bg-white' src='https://cdn-icons-png.flaticon.com/256/3126/3126647.png' alt='' />
+                <div className='userchatinfo'>
+                    <span>jane</span>
+                </div>
+            </div>
+            </div>
     )
 }
 
