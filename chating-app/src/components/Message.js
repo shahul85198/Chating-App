@@ -17,7 +17,7 @@ function Message({message}) {
 
 
     return (
-        <div className={`flex gap-4  ${Message.senderId === updateCurrentUser.uid }`} ref={ref}>
+        <div className={`flex gap-4  ${message.senderId === updateCurrentUser.uid }`} ref={ref}>
             <div className="flex flex-col text-gray-500 font-light">
 
                 <img className='w-16 h-16 rounded-full object-cover'
