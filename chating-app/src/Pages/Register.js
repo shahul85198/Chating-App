@@ -78,9 +78,12 @@ await uploadBytesResumable(storageRef, file).then(() => {
                 </label>
 
                 <button className='bg-blue-700 text-white px-4 py-2 font-bold' disabled={loading}>Sign up</button>
+              
                 {loading && "uploading the image please wait..."}
+               
                 {error && <span>Something error</span>}
-            </form>
+        
+        </form>
             <p>you do have an account? <Link to="/register">Login</Link></p>
 
         </div>
