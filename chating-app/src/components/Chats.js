@@ -14,7 +14,12 @@ function Chats() {
     useEffect(() => {
         const getChats = () => {
             const unsub = onSnapshot(doc(db, "userChats", currentUser.uid), (doc) => {
-                setChats(doc.data());
+               const chatData = doc.data();
+               if (chatData && typeof chatData == 'object') {
+                setChats(chatData);
+               } else {
+                setChats({});
+               }
             });
 
             return () => {
@@ -32,10 +37,11 @@ function Chats() {
 
     return (
         // we covert object to array we use keys in sort
-        <div className="chats">
+        <div>
         
         {Object.keys(chats)?.sort((a,b) => b[1].date - a[1].date).map((chat) => (
-            <div
+
+     <div
             className='userchat p-2 flex items-center gap-2 text-white cursor-pointer hover:bg-slate-700'
                key={chat[0]}
                onClick={() => handleSelect(chat[1].userInfo)}

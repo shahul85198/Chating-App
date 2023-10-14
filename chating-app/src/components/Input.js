@@ -82,7 +82,7 @@ function Input() {
              
              <div className='send flex items-center gap-2'>
                 <img className=" h-6 cursor-pointer" 
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6C75E2Wc6fpsnwQVGFJv3wmIblfjrrm3Y99IunU2_tZCi9hccfuGEYGWNdDNFwls9b5c&usqp=CAU"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOaXhpf9Uw_Yccij9kdplS5_A5XZJcgQqJVrx0yFCxCpoeiJh1MdohJP3MYvjrGSL__y8&usqp=CAU"
                  alt=""
                   />
 
@@ -94,7 +94,7 @@ function Input() {
 
                 <label htmlFor="='file">
                     <img className=" h-6 cursor-pointer" 
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp7Nq5EYnvJ-tI-nOthotkhSjJBz7DUvoO-5fqbpi0nRkQZfXXX88ATDarddtwIwsQFq0&usqp=CAU" 
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr7B6DrohzyGnCbeO3CB8vEwEoqX7tpMpQ1bdFPwde_5j4Qw1hv7SC__VlLUJDwc0qkM4&usqp=CAU" 
                     alt="" />
                 </label>
 

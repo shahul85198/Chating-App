@@ -1,27 +1,41 @@
 
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Login from './Pages/Login';
 import Register from './Pages/Register';
 import Home from './Pages/Home'
 import React, { useContext } from 'react';
 import {AuthContext} from './context/AuthContext'
-
-
-function App() {
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
  
  const ProtectedRoute = ({children}) => {
+
+     const {currentUser} = useContext(AuthContext);
+     const history = useHistory();
+
+     if (currentUser) {
+
+    return (
+      <Route>
+        {children}
+      </Route> 
   
-  const {currentUser} = useContext(AuthContext);
-    if (!currentUser) {
-      return <Redirect to="/login" />;
-  }
-    return children;
+      ) 
+     } else {
+         
+      history.push({pathname: '/login', state: {from: history.location}
+    })
+      return null
+     }
   };
+
+  
+function App() {
   return (
    <BrowserRouter>
      <Switch>
-      <Route path='/'>
+      <Route exact path='/'>
           <ProtectedRoute><Home /></ProtectedRoute> 
         </Route>
         <Route path='login' component={Login} />
