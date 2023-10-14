@@ -11,7 +11,7 @@ function Login() {
         const handleSubmit = async (e) => {
             e.preventDefault();
             const email = e.target[0].value;
-            const password = e.tarhet[1].value;
+            const password = e.target[1].value;
             const auth = getAuth();
 
          signInWithEmailAndPassword(auth, email, password)
