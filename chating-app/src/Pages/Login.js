@@ -16,7 +16,7 @@ function Login() {
 
          signInWithEmailAndPassword(auth, email, password)
          .then(() => {
-            history.push('/');
+            history.push('/login');
          })
          .catch((Error) => {
             setErr(Error.message)

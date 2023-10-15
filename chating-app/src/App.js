@@ -7,12 +7,14 @@ import Register from './Pages/Register';
 import Home from './Pages/Home'
 import React, { useContext } from 'react';
 import {AuthContext} from './context/AuthContext'
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
- 
+import {  useHistory } from 'react-router-dom';
+
+
  const ProtectedRoute = ({children}) => {
 
-     const {currentUser} = useContext(AuthContext);
-     const history = useHistory();
+  const {currentUser} = useContext(AuthContext);
+  const history = useHistory();
+  
 
      if (currentUser) {
 
@@ -24,11 +26,11 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
       ) 
      } else {
          
-      history.push({pathname: '/login', state: {from: history.location}
-    })
+      history.push( '/login') 
+    }
       return null
      }
-  };
+  
 
   
 function App() {

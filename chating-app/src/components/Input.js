@@ -24,8 +24,9 @@ function Input() {
 
             uploadTask.on(
                 (error) => {
-
+                    console.log("Error img upload", error)
                 },
+
                 () => {
                     getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
                         await updateDoc(doc(db, "chats", data.chatId), {
@@ -40,17 +41,18 @@ function Input() {
                     });
                 }
             );
-        } else {
+        } else if (currentUser && data) {
             await updateDoc(doc(db, "chats", data.chatId), {
                 messages: arrayUnion({
                     id: Date.now().toString(),
                     text,
                     senderId: currentUser.uid,
                     date: Timestamp.now()
-                })
-            })
+                }),
+            });
         }
 
+        if (currentUser && data) {
         await updateDoc(doc(db, "userChats", currentUser.uid), {
             [data.chatId + ".lastMessage"]: {
                 text,
@@ -64,10 +66,16 @@ function Input() {
             },
             [data.chatId + ".date"]: serverTimestamp(),
         });
-
+    }
+ 
+    try {
         setText("");
         setImg(null);
-      }
+
+    } catch (error) {
+        console.log("err in sending message", error)
+    }
+};
 
 
     return (
@@ -92,7 +100,7 @@ function Input() {
                 onChange={(e) => setImg(e.target.files[0])}
                 />
 
-                <label htmlFor="='file">
+                <label htmlFor='file'>
                     <img className=" h-6 cursor-pointer" 
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr7B6DrohzyGnCbeO3CB8vEwEoqX7tpMpQ1bdFPwde_5j4Qw1hv7SC__VlLUJDwc0qkM4&usqp=CAU" 
                     alt="" />
