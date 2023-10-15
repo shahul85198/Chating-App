@@ -1,13 +1,13 @@
 
 
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Login from './Pages/Login';
 import Register from './Pages/Register';
-import Home from './Pages/Home'
+import Home from './Pages/Home';
 import React, { useContext } from 'react';
-import {AuthContext} from './context/AuthContext'
-import {  useHistory } from 'react-router-dom';
+import {AuthContext} from './context/AuthContext';
+
+import { BrowserRouter, Route, Switch, useHistory } from 'react-router-dom';
 
 
  const ProtectedRoute = ({children}) => {
@@ -38,10 +38,12 @@ function App() {
    <BrowserRouter>
      <Switch>
       <Route exact path='/'>
-          <ProtectedRoute><Home /></ProtectedRoute> 
+          <ProtectedRoute>
+          <Home />
+          </ProtectedRoute> 
         </Route>
-        <Route path='login' component={Login} />
-        <Route path="register" component={Register} />
+        <Route exact path='login' component={Login} />
+        <Route exact path="register" component={Register} />
       
      </Switch>
     </BrowserRouter>
